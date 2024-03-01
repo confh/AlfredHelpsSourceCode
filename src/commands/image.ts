@@ -25,7 +25,7 @@ module.exports = new Command({
         await interaction.deferReply()
         const prompt = interaction.options.getString("prompt")
 
-        const openai = new OpenAI({ apiKey: "OPEN_AI_API_KEY" })
+        const openai = new OpenAI({ apiKey: client.config.openaikey })
 
         try {
             const image = await openai.images.generate({ prompt: prompt })

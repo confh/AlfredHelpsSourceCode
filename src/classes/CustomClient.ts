@@ -37,7 +37,8 @@ export default class CustomClient extends Client {
         owners: string[],
         token: string,
         clientid: string,
-        apikey: string
+        apikey: string,
+        openaikey: string,
         errorswebhookURL: string,
         infowebhookurl: string,
     };
