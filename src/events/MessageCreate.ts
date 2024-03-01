@@ -107,9 +107,6 @@ module.exports = {
                 if (maintenance && !client.config.owners.includes(message.author.id)) {
                     return message.reply(`Hey ${message.author.displayName}! The bot is currently under maintenance and can only be used by the owner/co-owner.`)
                 }
-                if (message.author.id === "767741466424246273") {
-                    return message.reply("Nigga you're banned from this bot.")
-                }
                 const prompt = message.content.replace(`<@${client.user?.id}>`, "").trim()
                 message.channel.sendTyping()
                 const genAI = new GoogleGenerativeAI(client.config.apikey);
@@ -173,9 +170,6 @@ module.exports = {
             } else if (reference.author.id === message.author.id && message.mentions.users.find(e => e.id === client.user?.id)) {
                 if (maintenance && !client.config.owners.includes(message.author.id)) {
                     return message.reply(`Hey ${message.author.displayName}! The bot is currently under maintenance and can only be used by the owner/co-owner.`)
-                }
-                if (message.author.id === "767741466424246273") {
-                    return message.reply("Nigga you're banned from this bot.")
                 }
                 const prompt = message.content.replace(`<@${client.user?.id}>`, "").trim()
                 message.channel.sendTyping()
@@ -243,9 +237,6 @@ module.exports = {
         if (message.mentions.users.find(e => e.id === client.user?.id) || message.guild?.channels.cache.get(message.channel.id)?.name.includes("alfredbot")) {
             if (maintenance && !client.config.owners.includes(message.author.id)) {
                 return message.reply(`Hey ${message.author.displayName}! The bot is currently under maintenance and can only be used by the owner/co-owner.`)
-            }
-            if (message.author.id === "767741466424246273") {
-                return message.reply("Nigga you're banned from this bot.")
             }
             const prompt = message.content.replace(`<@${client.user?.id}>`, "").trim()
             if (prompt.toLowerCase() === "make restart" && message.author.id === client.config.owners[0]) {

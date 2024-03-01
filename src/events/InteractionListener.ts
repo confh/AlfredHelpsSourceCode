@@ -10,8 +10,6 @@ module.exports = {
     async execute(interaction: CommandInteraction, client: CustomClient) {
         if (!interaction.isChatInputCommand()) return;
         const cmd = client.commands.find(a => a.data.toJSON().name === interaction.commandName)
-        const dateUntilRecontinue = 1707986100000
-        const dateUntilRecontinueInSeconds = Math.round(dateUntilRecontinue / 1000)
 
         if (!cmd) {
             client.logError(`Unknown command "${interaction.commandName}"`)
