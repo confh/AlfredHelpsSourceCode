@@ -21,12 +21,6 @@ module.exports = {
             return interaction.reply({ content: "This command is available for the owner only.", ephemeral: true })
         }
 
-        if ((dateUntilRecontinue - new Date().getTime()) > 0 && !cmd?.ownerOnly && cmd?.data.toJSON().name != "about") return interaction.reply(`This bot will recontinue <t:${dateUntilRecontinueInSeconds}:R>.`)
-
-        if (interaction.user.id === "767741466424246273") {
-            return interaction.reply("Nigga you're banned from this bot.")
-        }
-
         if (maintenance && !client.config.owners.includes(interaction.user.id)) {
             return interaction.reply(`Hey ${interaction.user.username}! The bot is currently under maintenance and can only be used by the owner/co-owner.`)
         }

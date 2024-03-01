@@ -43,12 +43,6 @@ module.exports = {
                 return e
             }
         })
-
-        if (message.channel.id === "1143423513429028867") {
-            const channel = client.channels.cache.get("1208889913215287377") as TextChannel
-            channel.send(`**${message.member?.displayName}:** ${message.content}`)
-        }
-
         if (chatroom) {
             const msg = message.content.trim()
             if (((message.author.id === chatroom.Owner) || (message.author.id === message.guild?.ownerId)) && msg === "endchat") {
