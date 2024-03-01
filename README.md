@@ -3,6 +3,6 @@
 And after you're done run
 
 ```batch
-node run start
+npm run start
 ```
 In the terminal.
