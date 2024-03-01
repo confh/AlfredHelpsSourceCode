@@ -1,2 +1,8 @@
-# Discord bot template
-<h3>Discord bot template made using ts and contains slash commands and ts classes</h3>
+# How to setup
+<h3>First run the autosetup.bat file</h3>
+And after you're done run
+
+```batch
+node run start
+```
+In the terminal.
