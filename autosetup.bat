@@ -48,11 +48,11 @@ echo Successfully installed yarn.
 timeout /t 2 /nobreak>nul
 cls
 echo Running yarn install...
-call yarn install>nul
+call yarn install
 echo Successfully installed dependencies.
-set /p run="Do you want to run the bot now? (Y/N) "
+set /p run="Do you want to run the bot now? (y/N): "
 set /a runBot=0
-if "%run% "=="Y" (set /a runBot=1)
+if "%run%" =="Y" (set /a runBot=1)
 if "%run%" == "y" (set /a runBot=1)
 cls
 if %runBot% == 1 (call yarn run start)
