@@ -12,7 +12,7 @@ module.exports = {
         })
         client.logInfo("Successfully fetched all members.")
         setTimeout(() => {
-            client.user?.setActivity(`Answering ${client.users.cache.filter(a => a.bot == false).size} users' questions...`, { type: 4 })
+            client.user?.setActivity(`Answering ${client.users.cache.filter(a => a.bot == false).size.toLocaleString("en-us")} users' questions...`, { type: 4 })
         }, 10000);
     }
 }
