@@ -36,7 +36,7 @@ module.exports = {
     name: Events.MessageCreate,
     once: false,
     async execute(message: Message, client: CustomClient) {
-        if (message.author.bot || message.channel.id === "1143423513429028867") return;
+        if (message.author.bot) return;
 
         const chatroom = client.chatrooms.find((e, i) => {
             if (e.ID === message.channel.id) {
