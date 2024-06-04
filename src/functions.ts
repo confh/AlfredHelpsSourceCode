@@ -278,39 +278,64 @@ async function embedPages(client: CustomClient, interaction: any, array: Array<s
     return embed;
 }
 
+
 /**
- * Generates a random cshort ode
- * @returns Random UID
+ * Generates a random UUID v4 string.
+ * @returns {string} The generated UUID string.
  */
 function uuidv4() {
+    // Generate a timestamp in milliseconds since the Unix epoch.
     var dt = new Date().getTime();
+
+    // Generate a random UUID string with the pattern 'xx4x-yxxx-xxxx'.
     var uuid = 'xx4x-yxxx-xxxx'.replace(/[xy]/g, function (c) {
+        // Generate a random number between 0 and 15.
         var r = (dt + Math.random() * 16) % 16 | 0;
+
+        // Update the timestamp for the next random number.
         dt = Math.floor(dt / 16);
+
+        // Convert the random number to its hexadecimal representation.
         return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     });
+
+    // Return the generated UUID string.
     return uuid;
 }
 
+
 /**
- * Checks if user has voted by user's ID
- * @param client The client
- * @param userId The ID of the user
- * @returns If user has voted or not
+ * Checks if a user has voted for the bot.
+ * @param {CustomClient} client - The bot client.
+ * @param {string} userId - The ID of the user.
+ * @returns {Promise<Boolean>} - A promise that resolves to a boolean indicating whether the user has voted.
  */
 async function hasVoted(client: CustomClient, userId: string): Promise<Boolean> {
+    // Send a GET request to the Top.gg API to retrieve the list of votes for the bot.
     const res = await axios.get(`https://top.gg/api/bots/${client.config.clientid}/votes`, { headers: { "Authorization": "TOP_GG_AUTH" } })
+
+    // Parse the response data as an array of votedUser objects.
     const data = res.data as votedUser[]
+
+    // Find the user in the list of votes.
     const voted = data.find(a => a.id === userId)
+
+    // Return true if the user has voted, false otherwise.
     return voted ? true : false
 }
 
+/**
+ * Checks if a random number is less than or equal to a given percentage.
+ * @param {number} percent - The percentage to compare against.
+ * @returns {boolean} - Returns true if the random number is less than or equal to the percentage, false otherwise.
+ */
 function chance(percent: number): boolean {
-    const randomNumber = Math.floor(Math.random() * 100)
+    // Generate a random number between 0 and 100.
+    const randomNumber = Math.floor(Math.random() * 100);
 
-    return (randomNumber <= percent)
+    // Check if the random number is less than or equal to the given percentage.
+    return (randomNumber <= percent);
 }
-
 
 
 export default {

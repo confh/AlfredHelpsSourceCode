@@ -6,45 +6,60 @@ module.exports = new Command({
         .setName("about")
         .setDescription("Information about the bot"),
     async execute(interaction, client) {
-        const uptime = client.uptime!!
+        // Get the uptime of the client
+        const uptime = client.uptime!!;
+
+        // Convert the uptime to seconds
         const seconds = Math.floor(uptime / 1000);
+
+        // Convert the seconds to minutes
         const minutes = Math.floor(seconds / 60);
+
+        // Convert the minutes to hours
         const hours = Math.floor(minutes / 60);
+
+        // Calculate the number of days
         const days = Math.floor(hours / 24);
-        const formattedUptime = `${days} days\n ${hours % 24} hours\n ${minutes % 60} minutes\n ${seconds % 60} seconds`
+
+        // Format the uptime into a string
+        const formattedUptime = `${days} days\n ${hours % 24} hours\n ${minutes % 60} minutes\n ${seconds % 60} seconds`;
+
+        // Create a new embed builder
         const embed = new EmbedBuilder()
-            .setTitle(`About ${client.user?.username}`)
+            .setTitle(`About ${client.user?.username}`) // Set the title of the embed
             .addFields(
                 {
-                    name: "Servers",
-                    value: client.guilds.cache.size.toString(),
-                    inline: true
+                    name: "Servers", // Add a field for the number of servers
+                    value: client.guilds.cache.size.toString(), // Set the value to the number of servers
+                    inline: true // Set the field to display inline
                 },
                 {
-                    name: "Users",
-                    value: client.users.cache.size.toString(),
-                    inline: true
+                    name: "Users", // Add a field for the number of users
+                    value: client.users.cache.size.toString(), // Set the value to the number of users
+                    inline: true // Set the field to display inline
                 },
                 {
-                    name: "Uptime",
-                    value: formattedUptime,
-                    inline: true
+                    name: "Uptime", // Add a field for the uptime
+                    value: formattedUptime, // Set the value to the formatted uptime
+                    inline: true // Set the field to display inline
                 },
                 {
-                    name: "Commands count",
-                    value: client.commands.filter(cmd => !(cmd.ownerOnly)).length.toString(),
-                    inline: true
+                    name: "Commands count", // Add a field for the number of commands
+                    value: client.commands.filter(cmd => !(cmd.ownerOnly)).length.toString(), // Set the value to the number of commands
+                    inline: true // Set the field to display inline
                 },
                 {
-                    name: "Amount of times used in the last 24 hours",
-                    value: client.usage.toString(),
-                    inline: true
+                    name: "Amount of times used in the last 24 hours", // Add a field for the usage count
+                    value: client.usage.toString(), // Set the value to the usage count
+                    inline: true // Set the field to display inline
                 }
             )
-            .setTimestamp()
-            .setColor("#2a2d30")
-            .setThumbnail(client.user?.avatarURL({ size: 1024 })?.toString() as string)
-        interaction.reply({ embeds: [embed] })
+            .setTimestamp() // Set the timestamp of the embed
+            .setColor("#2a2d30") // Set the color of the embed
+            .setThumbnail(client.user?.avatarURL({ size: 1024 })?.toString() as string); // Set the thumbnail of the embed
+
+        // Send the embed as a response to the interaction
+        interaction.reply({ embeds: [embed] });
     }
 
 })

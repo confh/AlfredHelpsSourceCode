@@ -17,8 +17,19 @@ client.config2 = {
 client.logError = function (error: string = "Unknown error", advanced?: { enabled: boolean, id: string }) {
     logger.error(error)
 }
+
+
+/**
+ * Logs an informational message using the logger.
+ * 
+ * @param {string} info - The information to be logged. Defaults to "Unknown info" if no argument is provided.
+ */
 client.logInfo = function (info: string = "Unknown info") {
-    logger.info(info)
+    // Log the informational message using the logger.
+    // The logger is imported from the "./logger" module.
+    // The "info" parameter is the information to be logged.
+    // If no argument is provided, the default value "Unknown info" is used.
+    logger.info(info);
 }
 
 client.login(token)
