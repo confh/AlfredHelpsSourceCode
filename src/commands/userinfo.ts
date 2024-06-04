@@ -9,7 +9,7 @@ module.exports = new Command({
             .setRequired(false)
             .setName("user")
             .setDescription("The user to display information about")) as SlashCommandBuilder,
-    async execute(interaction: CommandInteraction, client) {
+    async execute(interaction, client) {
         const user = interaction.options.getUser("user") || interaction.user
         const bannedFromBot = ["767741466424246273"]
         const roles = [

@@ -6,25 +6,13 @@ module.exports = new Command({
         .setName("about")
         .setDescription("Information about the bot"),
     async execute(interaction, client) {
-        // Get the uptime of the client
         const uptime = client.uptime!!;
-
-        // Convert the uptime to seconds
         const seconds = Math.floor(uptime / 1000);
-
-        // Convert the seconds to minutes
         const minutes = Math.floor(seconds / 60);
-
-        // Convert the minutes to hours
         const hours = Math.floor(minutes / 60);
-
-        // Calculate the number of days
         const days = Math.floor(hours / 24);
-
-        // Format the uptime into a string
         const formattedUptime = `${days} days\n ${hours % 24} hours\n ${minutes % 60} minutes\n ${seconds % 60} seconds`;
 
-        // Create a new embed builder
         const embed = new EmbedBuilder()
             .setTitle(`About ${client.user?.username}`) // Set the title of the embed
             .addFields(

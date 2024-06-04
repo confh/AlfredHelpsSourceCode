@@ -1,9 +1,9 @@
 
 import { Client, ColorResolvable, GatewayIntentBits, REST, Routes } from 'discord.js'
-const express = require("express")
+import express from "express";
 import Command from './Command';
-const fs = require('node:fs');
-const path = require('node:path');
+import fs from 'node:fs';
+import path from 'node:path';
 const app = express()
 
 interface historyData {
@@ -83,7 +83,7 @@ export default class CustomClient extends Client {
             } else {
                 this.logInfo(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`); // Log a warning if the command is missing required properties
             }
-        }).filter((command: any) => command !== undefined); // Filter out any undefined commands
+        });
 
         try {
             this.logInfo(`Started refreshing ${commandData.length} application (/) commands.`); // Log the start of the command refresh

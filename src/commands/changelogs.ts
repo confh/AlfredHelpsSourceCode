@@ -11,10 +11,6 @@ module.exports = new Command({
                 Date: "24th of January, 2024",
                 Change: "**Chatrooms**: Use /chatrooms command to talk with the bot in a private channel and it can remember your messages!"
             },
-            {
-                Date: "30th of January, 2024",
-                Change: "**Image generation**: Use /image to generate an image"
-            }
         ]
         const embed = new EmbedBuilder()
             .setTitle(`Changelogs`)

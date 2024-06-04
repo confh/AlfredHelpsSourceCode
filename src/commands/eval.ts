@@ -17,7 +17,6 @@ module.exports = new Command({
         let evaled;
         await interaction.deferReply()
         try {
-            const start = process.hrtime();
             evaled = eval(code);
 
             if (evaled instanceof Promise) {
