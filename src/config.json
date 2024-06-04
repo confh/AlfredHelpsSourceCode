@@ -5,7 +5,5 @@
     "token": "BOT_TOKEN",
     "clientid": "BOT_ID",
     "apikey": "GEMINI_API_KEY",
-    "openaikey": "OPENAI_API_KEY",
-    "errorswebhookURL": "WEBHOOK_URL FOR BOT ERRORS",
-    "infowebhookurl": "WEBHOOK_URL FOR BOT INFO"
+    "openaikey": "OPENAI_API_KEY"
 }
