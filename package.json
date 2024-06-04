@@ -2,10 +2,10 @@
   "name": "discordbot",
   "version": "1.0.0",
   "description": "Simple discord bot testing",
-  "main": "index.ts",
+  "main": "core.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx watch src/index.ts"
+    "start": "tsx src/core.ts"
   },
   "author": "confh <fares.aiman@gmail.com>",
   "license": "ISC",
