@@ -12,9 +12,6 @@ clear
 echo -n "Gemini api key: "
 read apikey
 clear
-echo -n "OpenAI api key: "
-read openaikey
-clear
 
 if [ -z "$owner" ]; then 
   owner="OWNER_ID"
@@ -28,10 +25,6 @@ fi
 if [ -z "$apikey" ]; then 
   apikey="GEMINI_API_KEY"
 fi
-if [ -z "$openaikey" ]; then 
-  openaikey="OPENAI_API_KEY"
-fi
-
 echo Editing config.json...
 cd src
 cat >config.json << EOF
@@ -41,8 +34,7 @@ cat >config.json << EOF
     ],
     "token": "$token",
     "clientid": "$clientid",
-    "apikey": "$apikey",
-    "openaikey": "$openaikey",
+    "apikey": "$apikey"
 }
 EOF
 cd ..

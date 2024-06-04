@@ -4,6 +4,5 @@
     ],
     "token": "BOT_TOKEN",
     "clientid": "BOT_ID",
-    "apikey": "GEMINI_API_KEY",
-    "openaikey": "OPENAI_API_KEY"
+    "apikey": "GEMINI_API_KEY"
 }

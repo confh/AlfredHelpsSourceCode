@@ -8,13 +8,10 @@ set /p clientid="Bot ID: "
 cls
 set /p apikey="Gemini api key: " 
 cls 
-set /p openaikey="OpenAI api key: " 
-cls 
 if [%owner%]==[] set owner=OWNER_ID
 if [%token%]==[] set token=BOT_TOKEN
 if [%clientid%]==[] set clientid=BOT_ID
 if [%apikey%]==[] set apikey=GEMINI_API_KEY
-if [%openaikey%]==[] set openaikey=OPENAI_API_KEY
 
 
 echo Editing config.json...
@@ -26,8 +23,7 @@ cd src
     echo ],
     echo  "token": "%token%",
     echo  "clientid": "%clientid%",
-    echo  "apikey": "%apikey%",
-    echo  "openaikey": "%openaikey%",
+    echo  "apikey": "%apikey%"
 echo }
 ) > "config.json"
 cd ..

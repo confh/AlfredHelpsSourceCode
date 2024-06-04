@@ -21,7 +21,6 @@
     "fluent-ffmpeg": "^2.1.2",
     "fs": "^0.0.1-security",
     "moment": "^2.30.1",
-    "openai": "^4.26.0",
     "pino": "^8.14.1",
     "pino-pretty": "^10.0.0",
     "ytdl-core": "^4.11.4"
